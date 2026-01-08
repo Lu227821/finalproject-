@@ -21,6 +21,9 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+// Redirect root URL to /Records
+app.MapGet("/", () => Results.Redirect("/Records", permanent: false));
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
